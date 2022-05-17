@@ -17,6 +17,6 @@ def img_to_arr(path, rounding_scale=2):
     return pix
 
 # Convert the modified array to an image object and display it
-def show_image_from_arr(arr):
+def save_image_from_arr(arr):
     output = Image.fromarray(np.uint8(arr*255))
     output.save("output.jpg")

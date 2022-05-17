@@ -19,8 +19,8 @@ for row in range(new_shape[0]):
     for column in range(new_shape[1]):
         # Defines current kernel matrix
         kernel = np.array([array[row:row + filter.shape[1], column:column + filter.shape[0]]])
-        #kernel = np.array([array[:filter.shape[1], :filter.shape[0]]])
 
+        # Get each output pixel by summing the dot product
         output = np.sum(np.dot(filter, kernel))
         output_row.append(output)
     
@@ -28,7 +28,8 @@ for row in range(new_shape[0]):
 
 output = np.array(output_array)
 
+# Scales each pixel to the highest pixel
 rel_max = np.amax(output)
 output = np.round_(output / rel_max, decimals=3)
 
-load.show_image_from_arr(output)
+load.save_image_from_arr(output)
